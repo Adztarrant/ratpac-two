@@ -12,6 +12,7 @@
 #include <RAT/PMTConstruction.hh>
 #include <RAT/RevolutionPMTConstruction.hh>
 #include <RAT/ToroidalPMTConstruction.hh>
+#include <RAT/EncapsulatedPMTConstruction.hh>
 #include <algorithm>
 
 namespace RAT {
@@ -20,6 +21,8 @@ PMTConstruction *PMTConstruction::NewConstruction(DBLinkPtr table, G4LogicalVolu
   std::string construction = table->Get<std::string>("construction");
   if (construction == "toroidal") {
     return new ToroidalPMTConstruction(table, mother);
+  } else if (construction == "encapsulated") {
+    return new EncapsulatedPMTConstruction(table, mother);
   } else if (construction == "revolution") {
     return new RevolutionPMTConstruction(table, mother);
   } else if (construction == "cubic") {

@@ -63,7 +63,9 @@ add_library(geo OBJECT
         src/pmt/PMTInfoParser.cc
         src/pmt/RevolutionPMTConstruction.cc
         src/pmt/ToroidalPMTConstruction.cc
-        )
+	src/pmt/EncapsulatedPMTConstruction.cc
+
+      )
 
 # Set our include directories
 target_include_directories(geo SYSTEM PUBLIC 
